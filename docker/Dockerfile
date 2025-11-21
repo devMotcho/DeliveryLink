@@ -1,5 +1,5 @@
 # Set the base image to Python 3 (slim version)
-FROM python:3-slim
+FROM python:3.12-slim
 
 # Set the working directory in the container
 WORKDIR /home/app/web
@@ -9,11 +9,14 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1
 
-# Update packages and install build-essential for compiling dependencies
+    
+    # Update packages and install build-essential for compiling dependencies
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
     build-essential && \
     rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update && apt-get install -y nodejs npm && rm -rf /var/lib/apt/lists/*
+    
 # Upgrade pip to the latest version
 RUN pip install --upgrade pip
 

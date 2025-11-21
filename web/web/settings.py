@@ -27,10 +27,11 @@ INSTALLED_APPS += [
     'delivery.orders',
 ]
 
-# 3rd Party apps
-# INSTALLED_APPS += [
-    
-# ]
+# 3rd party apps
+INSTALLED_APPS += [
+    "sass_processor"
+]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -110,6 +111,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'scss')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'node_modules/bootstrap/dist'),
+    SASS_PROCESSOR_ROOT,
+]
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
