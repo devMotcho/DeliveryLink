@@ -23,13 +23,14 @@ INSTALLED_APPS = [
 
 # My apps
 INSTALLED_APPS += [
-    'delivery'
+    'delivery',
+    'delivery.orders',
 ]
 
 # 3rd Party apps
-INSTALLED_APPS += [
+# INSTALLED_APPS += [
     
-]
+# ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
