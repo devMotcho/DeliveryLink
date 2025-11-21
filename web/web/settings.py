@@ -25,6 +25,7 @@ INSTALLED_APPS = [
 INSTALLED_APPS += [
     'delivery',
     'delivery.orders',
+    'delivery.actors',
 ]
 
 # 3rd party apps

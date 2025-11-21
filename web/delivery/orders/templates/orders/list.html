@@ -10,17 +10,21 @@
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Availability</th>
+            <th scope="col">UUID</th>
+            <th scope="col">Discount</th>
+            <th scope="col">Client Phone Number</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Items Count</th>
           </tr>
         </thead>
         <tbody>
           {% for order in orders %}
             <tr>
-              <td>{{ order.name }}</td>
-              <td>${{ order.price|floatformat:2 }}</td>
-              <td><span class="badge bg-{% if order.available %}success{% else %}danger{% endif %}">{% if order.available %}In stock{% else %}Out of stock{% endif %}</span></td>
+              <td>{{ order.uuid }}</td>
+              <td>{{ order.discount|floatformat:2 }} $</td>
+              <td>{{ order.client_phone_number }}</td>
+              <td>{{ order.total_price|floatformat:2 }}</td>
+              <td>{{ order.items.count }}</td>
             </tr>
           {% endfor %}
         </tbody>

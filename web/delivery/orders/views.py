@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import View
+from .models import Order
 
 # Create your views here.
 def home(request):
@@ -11,11 +12,7 @@ def home(request):
 class OrdersListView(View):
     def get(self, request):
         
-        orders = [
-            {"name": '24" Monitor', "price": 129.90, "available": True},
-            {"name": "Mechanical Keyboard", "price": 89.50, "available": False},
-            {"name": "Wireless Mouse", "price": 29.99, "available": True},
-        ]
+        orders = Order.objects.filter()
         
         context = {
             "orders": orders,
