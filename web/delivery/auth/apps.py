@@ -1,6 +1,7 @@
 from django.apps import AppConfig
 
 
-class ActorsConfig(AppConfig):
+class AuthConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'actors'
+    name = 'delivery.auth'
+    label = 'delivery_auth'

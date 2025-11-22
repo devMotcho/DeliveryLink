@@ -9,14 +9,15 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1
 
-    
-    # Update packages and install build-essential for compiling dependencies
-RUN apt-get update -y && apt-get install -y --no-install-recommends \
-    build-essential && \
-    rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y nodejs npm && rm -rf /var/lib/apt/lists/*
-    
+# Update packages and install system dependencies
+RUN apt-get update -y && apt-get install -y --no-install-recommends \
+    build-essential \
+    nodejs \
+    npm \
+    netcat-openbsd \
+    && rm -rf /var/lib/apt/lists/*
+
 # Upgrade pip to the latest version
 RUN pip install --upgrade pip
 
